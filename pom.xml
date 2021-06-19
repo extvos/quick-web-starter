@@ -14,7 +14,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <springboot.version>2.4.4</springboot.version>
     </properties>
 
     <dependencies>
@@ -33,6 +32,24 @@
 
         <dependency>
             <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-upload</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-quartz</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-builtin-async</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
             <artifactId>quick-lib-restlet</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
@@ -40,6 +57,18 @@
         <dependency>
             <groupId>org.extvos</groupId>
             <artifactId>quick-lib-common</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-lib-logging</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.extvos</groupId>
+            <artifactId>quick-auth-builtin</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
@@ -55,5 +84,21 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+
+    <distributionManagement>
+        <repository>
+            <!--这里的id与settings.xml中的servers节点配置的用户ID一直，这样才能使用配置的用户去上传到maven私有仓库 -->
+            <!--此仓库对应的为RELEASE版本的jar-->
+            <id>inodes</id>
+            <url>http://nexus.inodes.cn/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <!--这里的id与settings.xml中的servers节点配置的用户ID一直，这样才能使用配置的用户去上传到maven私有仓库 -->
+            <!--此仓库对应的为SNAPSHOT版本的jar-->
+            <id>inodes</id>
+            <url>http://nexus.inodes.cn/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
